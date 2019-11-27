@@ -10,8 +10,21 @@
       width: 200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 100px 100px 100px;
       grid-template-rows: 50px 50px;
+      /*  grid-template-columns: repeat(auto-fill, 100px);   每列宽度100px，然后自动填充，直到容器不能放置更多的列。 */
+      /* grid-template-columns: 1fr 1fr; fr:片段 一行两列，等比 可以与绝对长度的单位结合使用 */
+      /* grid-template-columns: 50px 1fr 2fr;   一行三个块，第一个块50px绝对长度、第二个和第三个是1:2的关系 */
+      /* grid-template-columns: 1fr 1fr minmax(50px, 1fr); minmax(100px, 1fr)表示列宽不小于100px，不大于1fr */
+      /* grid-template-columns: 100px auto 100px; auto 就是自适应 */
+      /* grid-template-columns: 70% 30%; 百分比 */
+      /* grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4];
+      grid-template-rows: [r1] 100px [r2] 100px [r3] auto [r4];
+      grid-template-columns属性和grid-template-rows属性里面，还可以使用方括号，指定每一根网格线的名字，方便以后的引用。 3x3有4根垂直网格线和4根水平网格线。方括号里面依次是这八根线的名字。网格布局允许同一根线有多个名字，比如[fifth-line row-5] */
+      /* grid-template-columns: repeat(12, 1fr); 十二网格 */
+      /* grid-row-gap用于设置行间距，grid-column-gap用于设置列间距 */
+      /* grid-row-gap: 20px;
+      grid-column-gap: 20px; 等同于 */
+      grid-gap: 20px 20px;
     }
 
     .container div {
@@ -19,13 +32,14 @@
       font-size: 20px;
       color: #fff;
       text-align: center;
+      /* border: 1px solid #fff; */
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div style="background: #b1f4b9; grid-column-start: 1; grid-column-end: 4;">1</div>
+    <!-- <div style="background: #b1f4b9; grid-column-start: 1; grid-column-end: 4;">1</div> -->
     <div style="background: #f7d1a0;">2</div>
     <div style="background: #E4B5FC;">3</div>
     <div style="background: #f7d1a0;">4</div>
